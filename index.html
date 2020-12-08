@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <title>Music Player</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            playing now
+        </header>
+        <div class="disco">
+            <img src="la-beriso-atrapando-sueños.jpeg" alt="">
+            <p id = "titulo-cancion"></p>
+            <p id = "artista"></p>
+        </div>
+        <form>
+            <input type="range" name="points" id ="barra" min = "0" max ="10">
+        </form>
+        <div class="reproductor">
+            <audio id = "reproductor" src=""></audio>
+            <i class="fas fa-backward"></i>
+            <i class="fas fa-play" id="play" onclick = "playPausa()"></i>
+            <i class="fas fa-forward"></i>
+        </div>
+
+    </div>
+    <script src = "script.js"></script>
+</body>
+</html>
