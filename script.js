@@ -13,7 +13,9 @@ const barraProg = document.getElementById("barra");
 const tiempoCancion = document.getElementById("tiempo");
 const duracionCancion = document.getElementById("duracion");
 const tituloCancion = document.getElementById("titulo-cancion");
-const nombreArtista = document.getElementById("artista"); 
+const nombreArtista = document.getElementById("artista");
+const portadaAlbum = document.getElementById("portada");
+const tituloAlbum = document.getElementById("titulo-album"); 
 
 var canciones = new Array();
 canciones[0]= {album: "Atrapando Sueños", artista: "La Beriso", nombreCancion:"Cantemos", cancion:"/canciones/atrapando-sueños/La Beriso - Cantemos.mp3"};
@@ -56,7 +58,8 @@ function reproducirCancion(){
     reproducir.src = `${canciones[numeroCancion].cancion}`;
     nombreAutor(canciones[numeroCancion].artista);
     nombreCancion(canciones[numeroCancion].nombreCancion);
-    
+    cambiarTituloAlbum(canciones[numeroCancion].album);
+    cambiarImagen();
     if(songPlaying === true){
         reproducir.pause();
         reproducir.currentTime = 0;
@@ -74,6 +77,9 @@ function nombreCancion(t){
 }
 function nombreAutor(n){
     nombreArtista.innerText = `${n}`;
+}
+function cambiarTituloAlbum(a){
+    tituloAlbum.innerText = `${a}`;
 }
 
 
@@ -162,6 +168,16 @@ function actualizarDuracion(song){
     };
     
     duracionCancion.innerHTML = `0${duracionMin}:${duracionSeg}`;
+}
+
+function cambiarImagen(){
+    if(canciones[numeroCancion].album === "Atrapando Sueños"){
+        portadaAlbum.src = "la-beriso-atrapando-sueños.jpeg";
+    } else if(canciones[numeroCancion].album === "Descartando Miserias"){
+        portadaAlbum.src = "la-beriso-descartando-miserias.jpeg";
+    } else if(canciones[numeroCancion].album === "Historias"){
+        portadaAlbum.src = "la-beriso-historias.jpeg"
+    }
 }
 
 
