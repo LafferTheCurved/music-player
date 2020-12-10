@@ -18,7 +18,7 @@ const portadaAlbum = document.getElementById("portada");
 const tituloAlbum = document.getElementById("titulo-album"); 
 
 var canciones = new Array();
-canciones[0]= {album: "Atrapando Sueños", artista: "La Beriso", nombreCancion:"Cantemos", cancion:"/canciones/atrapando-sueños/La Beriso - Cantemos.mp3"};
+canciones[0]= {album: "Atrapando Sueños", artista: "La Beriso", nombreCancion:"Cantemos", cancion:"https://raw.githubusercontent.com/LafferTheCurved/music-player/master/canciones/atrapando-sueños/La Beriso - Cantemos.mp3"};
 canciones[1]= {album:"Atrapando Sueños", artista: "La Beriso", nombreCancion:"Infierno", cancion: "/canciones/atrapando-sueños/La Beriso - Infierno.mp3"};
 canciones[2]= {album:"Atrapando Sueños", artista: "La Beriso", nombreCancion:"Miras Al Cielo", cancion:"/canciones/atrapando-sueños/La Beriso - Miras Al Cielo.mp3"};
 canciones[3]= {album:"Atrapando Sueños", artista: "La Beriso", nombreCancion: "Otro Lugar", cancion:"/canciones/atrapando-sueños/La Beriso - Otro Lugar.mp3"};
