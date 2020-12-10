@@ -86,7 +86,7 @@ form{
     color: grey;
     
 }
-input::-moz-range-thumb {
+input::-webkit-range-thumb {
     -webkit-appearance: none;
     
     height: 5px;
@@ -101,14 +101,14 @@ input::-moz-range-thumb {
     
 }
 
-input::-moz-range-track{
+input::-webkit-range-track{
     -webkit-appearance: none;
     height: 15%;
     background-color: rgb(200,200,200);
     
 }
 
-input[type=range]::-moz-range-progress {
+input[type=range]::-webkit-range-progress {
     background-color: rgba(70, 101, 241, 0.774);
     
   }
