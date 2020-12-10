@@ -1,0 +1,218 @@
+.container{
+    display: flexbox;
+}
+
+
+img{
+    display: block;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 
+    -10px -7px  10px 5px rgb(255,255,255),
+    10px 7px 10px 5px rgba(0,0,0,0.3);
+    
+    border:aliceblue solid 7px;
+}
+
+header{
+    font-size: x-small;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    font-style: unset;
+    text-transform: uppercase;
+    color: grey;
+    letter-spacing: 1px;
+    
+}
+
+#titulo-cancion{
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 50px;
+    font-weight: bold;
+    color: rgb(40,40,40);
+    letter-spacing: 1px;
+    
+}
+
+#titulo-album{
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: grey;
+    
+}
+
+#artista{
+    font-size:small;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: grey;
+    
+}
+
+body{
+    background-color: aliceblue;
+}
+form{
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.reloj{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+#tiempo{
+    font-size:x-small;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    color: grey;
+    
+}
+#duracion{
+    font-size:x-small;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    color: grey;
+    
+}
+input::-moz-range-thumb {
+    -webkit-appearance: none;
+    
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background: rgba(70, 101, 241, 0.774);
+    border-width: 80%;
+    border: 5px solid;
+    border-color: aliceblue;
+    box-shadow: 0 2px 1px rgba(0,0,0,0.1);
+    cursor: pointer;
+    
+}
+
+input::-moz-range-track{
+    -webkit-appearance: none;
+    height: 15%;
+    background-color: rgb(200,200,200);
+    
+}
+
+input[type=range]::-moz-range-progress {
+    background-color: rgba(70, 101, 241, 0.774);
+    
+  }
+    input{
+    width: 100%;border-radius: 10%;
+    background-color: aliceblue;
+    
+}
+.reproductor{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10%;
+    
+    
+}
+
+
+.fa-play{
+    color: rgb(200,200,200);
+    font-size: small;
+    
+    
+    
+}
+#play{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(70, 101, 241, 0.774) ;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: 4px 4px 3px rgba(0,0,0,0.1);
+    border: rgba(0,0,0,0.1) solid;
+    
+}
+
+.fa-backward{
+    color: rgb(200,200,200);
+    font-size: small;
+
+}
+#back{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: aliceblue;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: 4px 4px 3px rgba(0,0,0,0.1);
+    border: rgba(0,0,0,0.1) solid;
+}
+
+
+.fa-forward{
+    color: rgb(200,200,200);
+    font-size: small;
+
+}
+
+#for{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color:aliceblue;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: 4px 4px 3px rgba(0,0,0,0.1);
+    border: rgba(0,0,0,0.1) solid;
+    
+}
+
+
+.fa-pause{
+    color: white;
+    font-size: small;
+    margin-right: 5%;
+    margin-left: 5%;
+
+}
+
+
+#for:active{
+    background-color: rgba(70, 101, 241, 0.774);
+}
+
+#back:active{
+    background-color: rgba(70, 101, 241, 0.774);
+}
+
+.fa-pause:active{
+    background-color: rgba(70, 101, 241, 0.774);
+}
+
+#pause{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color:aliceblue;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: 4px 4px 3px rgba(0,0,0,0.1);
+    border: rgba(0,0,0,0.1) solid;
+}

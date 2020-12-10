@@ -88,11 +88,13 @@ function playPausa(){
     if(songPlaying === true){
         togglePlayPause();
         songPlaying = false;
+        btnPlay.id= "play";
         reproducir.play();
         
     } else{
         togglePlayPause();
         songPlaying = true;
+        btnPlay.id= "pause";
         reproducir.pause();
         
         

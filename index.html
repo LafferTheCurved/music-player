@@ -19,15 +19,17 @@
             <p id = "artista">-artista-</p>
         </div>
         <form>
-            <p id = "tiempo">00:00</p>
-            <p id = "duracion">00:00</p>
+            <div class="reloj">
+                <p id = "tiempo">00:00</p>
+                <p id = "duracion">00:00</p>
+            </div>
             <input type="range" name="points" id ="barra" min = "0" max ="100" value = "0">
         </form>
         <div class="reproductor">
             <audio id = "reproductor" src=""></audio>
-            <i class="fas fa-backward"></i>
+            <i class="fas fa-backward" id = "back"></i>
             <i class="fas fa-play" id="play" onclick = "playPausa()"></i>
-            <i class="fas fa-forward"></i>
+            <i class="fas fa-forward" id="for"></i>
         </div>
 
     </div>
