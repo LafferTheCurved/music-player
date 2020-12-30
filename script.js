@@ -15,7 +15,14 @@ const duracionCancion = document.getElementById("duracion");
 const tituloCancion = document.getElementById("titulo-cancion");
 const nombreArtista = document.getElementById("artista");
 const portadaAlbum = document.getElementById("portada");
-const tituloAlbum = document.getElementById("titulo-album"); 
+const tituloAlbum = document.getElementById("titulo-album");
+const btnAzar = document.querySelector(".fa-random");
+const btnList = document.querySelector(".fa-list");
+const btnBackStart = document.querySelector(".fa-arrow-left");
+const listaCanciones = document.getElementById("lista-canciones");
+const portadaAlbumDos = document.getElementById("portada-secundaria");
+const listaCancionesReproduccion = document.querySelectorAll("div.unir-play-lista");
+const menu = document.getElementById("overlay");
 
 var canciones = new Array();
 canciones[0]= {album: "Atrapando Sueños", artista: "La Beriso", nombreCancion:"Cantemos", cancion:"https://raw.githubusercontent.com/LafferTheCurved/music-player/master/canciones/atrapando-sueños/La Beriso - Cantemos.mp3"};
@@ -46,28 +53,40 @@ canciones[23] = {album:"Historias", artista: "La Beriso", nombreCancion: "Vamos 
 
 
 let songPlaying = true;
+let songPlayingList = false;
 let numeroCancion = 0;
+let botonAzarOn = false;
+var cancionesDesplegadas = false;
+var elegiCancion = false;
+
 
 //Btn play, reproducir la cancion. Falta boton de pausa.
 function togglePlayPause(){
-    btnPlay.classList.toggle("fa-pause");
     btnPlay.classList.toggle("fa-play");
+    btnPlay.classList.toggle("fa-pause");
 }
 
+
+
 function reproducirCancion(){
+    songPlayingList = true;
     reproducir.src = `${canciones[numeroCancion].cancion}`;
     nombreAutor(canciones[numeroCancion].artista);
     nombreCancion(canciones[numeroCancion].nombreCancion);
     cambiarTituloAlbum(canciones[numeroCancion].album);
     cambiarImagen();
     if(songPlaying === true){
+        
         reproducir.pause();
         reproducir.currentTime = 0;
-    }else {
+    } else {
     reproducir.play();
     btnPlay.removeEventListener("click", reproducirCancion);
     
     }
+    reproducirCancionEnLista(numeroCancion);
+    cambiarPlayPausaEnLista(numeroCancion);
+    seleccionarCancionEnLista();
     
 }
 
@@ -96,21 +115,24 @@ function playPausa(){
         songPlaying = true;
         btnPlay.id= "pause";
         reproducir.pause();
-        
-        
     }
 }
 
 function siguienteCancion(){
+    songPlayingList= true;
     if(numeroCancion === (canciones.length - 1)){
         numeroCancion = 0;
         reproducir.src = `${canciones[numeroCancion].cancion}`;
         reproducirCancion();
+    } else if(botonAzarOn === true){
+        obtenerCancionAlAzar()
     } else {
     numeroCancion +=1;
     reproducir.src = `${canciones[numeroCancion].cancion}`;
     reproducirCancion();
     }
+    reproducirCancionEnLista(numeroCancion);
+    cambiarPlayPausaEnLista(numeroCancion);
     
 }
 
@@ -134,8 +156,9 @@ function backBtn(){
     reproducirCancion();
     
     }
-
-
+    reproducirCancionEnLista(numeroCancion);
+    cambiarPlayPausaEnLista(numeroCancion);
+    
 }
 
 function cambiarPosicion(){
@@ -175,13 +198,100 @@ function actualizarDuracion(song){
 function cambiarImagen(){
     if(canciones[numeroCancion].album === "Atrapando Sueños"){
         portadaAlbum.src = "la-beriso-atrapando-sueños.jpeg";
+        portadaAlbumDos.src = "la-beriso-atrapando-sueños.jpeg";
     } else if(canciones[numeroCancion].album === "Descartando Miserias"){
         portadaAlbum.src = "la-beriso-descartando-miserias.jpeg";
+        portadaAlbumDos.src ="la-beriso-descartando-miserias.jpeg";
     } else if(canciones[numeroCancion].album === "Historias"){
-        portadaAlbum.src = "la-beriso-historias.jpeg"
+        portadaAlbum.src = "la-beriso-historias.jpeg";
+        portadaAlbumDos.src = "la-beriso-historias.jpeg";
     }
 }
 
+
+function obtenerCancionAlAzar(){
+    numeroCancion = (Math.floor(Math.random()*canciones.length));
+    reproducir.src = `${canciones[numeroCancion].cancion}`;
+    reproducirCancion();
+}
+
+function activarAzarBtn(){
+    if(botonAzarOn === false){
+    botonAzarOn = true;
+    btnAzar.style = "color: white; background: rgba(70, 101, 241, 0.774); border-radius: 50%; height: 20px; width: 20px; box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), -2px -2px  2px 3px rgb(255,255,255),2px 2px 2px 3px rgba(0,0,0,0.3); display: table-cell; text-align: center; vertical-align: middle;"
+    alert("Activaste el modo aleatorio")
+    }else{
+        botonAzarOn = false;
+        btnAzar.style = "border-radius: 50%; background-color: aliceblue; display: table-cell;text-align: center; vertical-align: middle; box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), -2px -2px  2px 3px rgb(255,255,255),2px 2px 2px 3px rgba(0,0,0,0.3); height: 20px; width: 20px;border:aliceblue solid 2px;"
+}
+}
+
+function desplegarMenu(){
+    menu.style= "display: flex; flex-direction: column;";
+    
+}
+
+function volverAlInicio(){
+    menu.style= "display: none;"
+}
+
+
+// En la cancion que se esté reproduciendo. El color de unir-play-lista con el id de la cancion cambie de color.
+//Y que el i con la clase fa-play, que tiene ese id, cambie a fa-pause. Y la clase play-secundaria pase a pausa-secundaria.
+
+function reproducirCancionEnLista(song){
+    let a = document.getElementById(`${song + 1}`);
+    
+    [...document.querySelectorAll('.unir-play-lista')].forEach(function() { 
+        let activo = document.querySelector(".active");
+        
+        if(activo !== null){
+        activo.classList.remove("active")}
+        
+    a.classList.add("active");
+});
+}
+
+function cambiarPlayPausaEnLista(song){
+    let a = document.getElementById(`${song + 1}`);
+    
+    [...document.querySelectorAll(".play-secundario")].forEach(function(){
+        let pausado = document.querySelector(".pausa-secundaria");
+        let pausadoBoton = document.querySelector(".fa-pause");
+        if(pausado !== null){
+            pausado.classList.remove("pausa-secundaria");
+        }
+        if(pausadoBoton !==null){
+            pausadoBoton.classList.remove("fa-pause");
+            pausadoBoton.classList.add("fa-play")
+            
+        }
+        if(songPlaying === true){
+            btnPlay.classList.remove("fa-play");
+            btnPlay.classList.add("fa-pause")
+          songPlaying = false;} else {
+            btnPlay.classList.remove("fa-pause");
+            btnPlay.classList.add("fa-play");
+          songPlaying = true}
+        a.childNodes[3].classList.add("fa-pause");
+        a.childNodes[3].classList.remove("fa-play");
+        a.childNodes[3].classList.add("pausa-secundaria");
+    })
+    
+}
+
+function seleccionarCancionEnLista(){
+    
+    [...document.querySelectorAll('.unir-play-lista')].forEach(function(item){
+    item.onclick = function() {
+    numeroCancion = parseInt(this.id - 1);
+    reproducirCancion();
+    if(songPlayingList === false){
+        reproducirCancion();
+        togglePlayPause();
+    }
+}})
+}
 
 btnPlay.addEventListener("click", reproducirCancion);
 btnBack.addEventListener("click",backBtn);
@@ -189,3 +299,9 @@ btnFor.addEventListener("click", siguienteCancion);
 barraProg.addEventListener("change", cambiarPosicion);
 reproducir.addEventListener("timeupdate", actualizarTiempo);
 reproducir.addEventListener("ended", siguienteCancion);
+btnAzar.addEventListener("click", activarAzarBtn);
+btnList.addEventListener("click", desplegarMenu);
+btnBackStart.addEventListener("click", volverAlInicio);
+seleccionarCancionEnLista();
+
+

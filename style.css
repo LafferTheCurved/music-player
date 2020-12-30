@@ -16,16 +16,82 @@ img{
     border:aliceblue solid 7px;
 }
 
+#portada-secundaria{
+    width: 40%;
+}
+.fa-arrow-left{
+    border-radius: 50%;
+    background-color: aliceblue;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 
+    -2px -2px  2px 3px rgb(255,255,255),
+    2px 2px 2px 3px rgba(0,0,0,0.3);
+    height: 20px; 
+    width: 20px;
+    border:aliceblue solid 2px;
+    margin-left: 5%;
+    
+}
+.fa-arrow-left:active{
+    background-color: rgba(70, 101, 241, 0.774);
+}
+
+#izquierda{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: grey;
+}
+
+.fa-heart{
+    border-radius: 50%;
+    background-color: aliceblue;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 
+    -2px -2px  2px 3px rgb(255,255,255),
+    2px 2px 2px 3px rgba(0,0,0,0.3);
+    height: 20px; 
+    width: 20px;
+    border:aliceblue solid 2px;
+    margin-right: 5%;
+}
+
+#corazon{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: grey;
+}
+
+#menu-overlay{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.encabezado{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
 header{
     font-size: x-small;
     font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
     margin-bottom: 50px;
     margin-top: 30px;
     font-style: unset;
     text-transform: uppercase;
     color: grey;
     letter-spacing: 1px;
+    
+    
     
 }
 
@@ -170,6 +236,54 @@ input[type=range]::-moz-range-progress {
 
 }
 
+.fa-random{
+    border-radius: 50%;
+    background-color: aliceblue;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 
+    -2px -2px  2px 3px rgb(255,255,255),
+    2px 2px 2px 3px rgba(0,0,0,0.3);
+    height: 20px; 
+    width: 20px;
+    border:aliceblue solid 2px;
+    
+}
+
+#random-b{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    
+}
+#list-b{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+
+.fa-list{
+    border-radius: 50%; 
+    background-color: aliceblue; 
+    display: table-cell;
+    text-align: center; 
+    vertical-align: middle; 
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), -2px -2px  2px 3px rgb(255,255,255),2px 2px 2px 3px rgba(0,0,0,0.3); 
+    height: 20px; 
+    width: 20px;
+    border:aliceblue solid 2px;
+    
+}
+
+.fa-list:active{
+    background-color: rgba(70, 101, 241, 0.774);
+}
+
+
+
 #for{
     width: 80px;
     height: 80px;
@@ -216,3 +330,100 @@ input[type=range]::-moz-range-progress {
     box-shadow: 4px 4px 3px rgba(0,0,0,0.1);
     border: rgba(0,0,0,0.1) solid;
 }
+
+
+.play-secundario{
+    border-radius: 50%;
+    background-color: aliceblue;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 
+    -2px -2px  2px 3px rgb(255,255,255),
+    2px 2px 2px 3px rgba(0,0,0,0.3);
+    height: 20px; 
+    width: 20px;
+    border:aliceblue solid 2px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+}
+
+.pausa-secundaria{
+    border-radius: 50%;
+    background-color: rgba(70, 101, 241, 0.774);
+    color: white;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 
+    -2px -2px  2px 3px rgb(255,255,255),
+    2px 2px 2px 3px rgba(0,0,0,0.3);
+    height: 20px; 
+    width: 20px;
+    border:aliceblue solid 2px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+}
+
+
+div.menu-canciones{
+    margin-top: 30px; 
+    margin-bottom: 30px;
+    padding:5px; 
+    background-color: aliceblue; 
+    width: 95%; 
+    height: 30%; 
+    overflow: auto; 
+    text-align:justify;
+    
+}
+
+.unir-play-lista{
+    display: flex;
+    flex-direction: row;
+    align-self: start;
+    justify-content: space-between;
+    margin-top: 20px;
+    
+}
+
+
+.autores-canciones{
+    font-size:smaller;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: grey;
+    
+}
+.titulo-canciones{
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(40,40,40);
+    letter-spacing: 1px;
+}
+
+
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: aliceblue;
+ /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+  }
+
+  .active{
+      background-color: rgba(181, 213, 243, 0.774);
+      border-radius: inherit;
+      height: 50px;
+  }
